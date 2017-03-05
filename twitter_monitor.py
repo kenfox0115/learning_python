@@ -7,13 +7,14 @@ auth.set_access_token('58867345-wukkRMORY7aJvBb795hJmTGxv6rApJFeUibbBDpLp', 'hNs
 
 api = tweepy.API(auth)
 
-
-# initially, the script will assume that the last tweet was a null value
-lasttweet = None
+#gets lasttweet id from text file
+lasttweet_fromfile = open('lasttweet.txt', 'r')
+lasttweet = lasttweet_fromfile.read()
+lasttweet_fromfile.close()
 
 # What the bot will tweet. file reading disabled
 #filename = open('twain.txt', 'r')
-tweettext = 'testing response text'
+tweettext = 'this is dumb'
 #filename.close()
 
 
@@ -28,19 +29,26 @@ def runTime():
     global lasttweet
 
     # gets the most recent tweet by @ocertat and prints its id
-    mostrecenttweet = api.user_timeline('agentcooper0115')[0]
+    mostrecenttweet = api.user_timeline('KenCFox')[0]
     print(mostrecenttweet.id)
 
     # compares the two tweets, and tweets a line of Twain
     # if there is a new tweet from @ocertat
     if mostrecenttweet != lasttweet:
 #        line = tweettext[linenum()]
-        line = tweettext
+        line = '@KenCFox' + tweettext
         api.update_status(status=line)
         print(line)
 
     # updates lasttweet to the most recent tweet
     lasttweet = mostrecenttweet
+
+#writes last tweet to text file
+lasttweet_tofile = open('lasttweet.txt', 'w')
+lasttweet_tofile.write(lasttweet)
+lasttweet_tofile.close()
+
+
 
 # runs the main function every 5 seconds
 while True:
