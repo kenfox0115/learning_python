@@ -5,7 +5,6 @@ auth.set_access_token('58867345-wukkRMORY7aJvBb795hJmTGxv6rApJFeUibbBDpLp', 'hNs
 
 api = tweepy.API(auth)
 
-API.user_timeline(  )
 
 
 
@@ -13,29 +12,22 @@ API.user_timeline(  )
 
 
 
+#gets userinfo for specified user and writes to file. working
+#user_info = api.get_user('agentcooper0115')
+#f = open('userdata', 'w')
+#s = str(user_info)
+#print(s)
+#f.write(s)
+
+#updates logged in usere's status. working
+#api.update_status('This is a test of HarrasmentBot 0.01')
 
 
+#Returns the 20 most recent statuses posted from the authenticating user or the user specified. working
+#timeline = api.user_timeline(id="agentcooper0115")
+#print(timeline)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#prints public tweets for current user
+#prints public tweets for current user. Working
 #public_tweets = api.home_timeline()
 #for tweet in public_tweets:
 #    print (tweet.text)
