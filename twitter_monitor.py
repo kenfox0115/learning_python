@@ -8,7 +8,7 @@ auth.set_access_token('58867345-wukkRMORY7aJvBb795hJmTGxv6rApJFeUibbBDpLp', 'hNs
 api = tweepy.API(auth)
 
 # initially, the script will assume that the last tweet was a null value
-lasttweet = api.user_timeline('KenCFox')[0]
+lasttweet = api.user_timeline('jonnytestsalot')[0]
 
 # What the bot will tweet
 #filename = open('twain.txt', 'r')
@@ -24,7 +24,7 @@ def runTime():
     global lasttweet
 
     # gets the most recent tweet by @ocertat and prints its id
-    mostrecenttweet = api.user_timeline('KenCFox')[0]
+    mostrecenttweet = api.user_timeline('jonnytestsalot')[0]
     print(mostrecenttweet.id)
 
     # compares the two tweets, and tweets a line of Twain
