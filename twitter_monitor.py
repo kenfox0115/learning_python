@@ -12,7 +12,7 @@ lasttweet = api.user_timeline('jonnytestsalot')[0]
 
 # What the bot will tweet
 #filename = open('twain.txt', 'r')
-tweettext = 'I are the tweet text'
+tweettext = 'I heckle you'
 #filename.close()
 
 
@@ -31,7 +31,7 @@ def runTime():
     # if there is a new tweet from @ocertat
     if mostrecenttweet != lasttweet:
         line = tweettext
-        #api.update_status(status=line)
+        api.update_status(status= '@jonnytestsalot ' + line)
         print(line)
 
     # updates lasttweet to the most recent tweet
