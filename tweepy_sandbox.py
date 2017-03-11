@@ -12,6 +12,8 @@ api = tweepy.API(auth)
 
 
 
+
+
 #gets userinfo for specified user and writes to file. working
 #user_info = api.get_user('agentcooper0115')
 #f = open('userdata', 'w')
@@ -20,7 +22,7 @@ api = tweepy.API(auth)
 #f.write(s)
 
 #updates logged in usere's status. working
-#api.update_status('This is a test of HarrasmentBot 0.01')
+#api.update_status('testing harassmentbot again')
 
 
 #Returns the 20 most recent statuses posted from the authenticating user or the user specified. working
@@ -31,3 +33,8 @@ api = tweepy.API(auth)
 #public_tweets = api.home_timeline()
 #for tweet in public_tweets:
 #    print (tweet.text)
+
+
+#gets id for most rtecent tweet of user. working
+#mostrecenttweet = api.user_timeline('agentcooper0115')[0]
+#print(mostrecenttweet)
