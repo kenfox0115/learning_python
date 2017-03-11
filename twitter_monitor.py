@@ -1,5 +1,8 @@
 import tweepy
 import time
+import csv
+import random
+
 from random import randint
 
 auth = tweepy.OAuthHandler('y4466mn59R0Fk0aOgqKPpXHzK', 'BFXyDey7YiG08W5k6sMenk1Lqc7KKwRY3VJl3lCBLDKc36kk7y')
@@ -30,7 +33,23 @@ def runTime():
     # compares the two tweets, and tweets a line of Twain
     # if there is a new tweet from @ocertat
     if mostrecenttweet != lasttweet:
-        line = tweettext
+        # choose a line form the statuses csv
+        replies = dict(csv.reader(open("tweets.csv")))
+        randreply = random.choice(list(replies.keys()))
+        tweetthis = replies[randreply]
+
+        # choose a line form the adjectives csv
+        adjectives = dict(csv.reader(open("adjectives.csv")))
+        randadjective = random.choice(list(adjectives.keys()))
+        tweetadj = adjectives[randadjective]
+
+        # combine tweet and adjective in to a single line
+        total_tweet = '@jonnytestsalot ' + tweetthis + tweetadj
+
+        # print total line to be tweeted
+        #print(total_tweet)
+
+        line = total_tweet
         api.update_status(status=line,in_reply_to_status_id=mostrecenttweet.id)
         print(line)
 
